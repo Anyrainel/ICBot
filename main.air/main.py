@@ -48,7 +48,7 @@ def main():
 
 def init():
     common.init_resolution()
-    with open(os.path.join(ST.PROJECT_ROOT, 'settings.json'), 'r') as txt:
+    with open(os.path.join(ST.PROJECT_ROOT, 'settings.jsonc'), 'r') as txt:
         builder = ""
         for linestr in txt.readlines():
             line = linestr.strip()
