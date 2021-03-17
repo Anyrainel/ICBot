@@ -1,12 +1,14 @@
 {
     // The installation folder of AirtestIDE. There should be a folder named "AirtestIDE/" under this path.
-    "AirtestIDEInstallDirectory": "F:/Program Files/AirtestIDE-win-1.2.8/",
-    // Whether capture screenshots while running. This will take up disk space over time, but is helpful setting up the bot.
-    "EnableLogReport": true,
-    // Whether show a HTML page after running.
+    "AirtestIDEDirectory": "F:\\Program Files\\AirtestIDE-win-1.2.8\\",
+    // Android emulator ADB url
+    "DeviceAdbUrl": "android://127.0.0.1:5037/emulator-5554",
+    // Log directory that records each run. This may take up disk space over time. Default: "log". 
+    "LogReportDirectory": "log",
+    // Whether show a HTML report after running. It is helpful to understand bot's behavior.
     "ShowLogReportAfterRun": true,
-    // Log directory. Default: "log/".
-    "LogReportDirectory": "log/",
+    // Remove everything under "LogReportDirectory" before running bot.
+    "CleanUpLogBeforeRun": false,
     // Actions ICBot will perform in order.
     "BotSequence": [
         // {

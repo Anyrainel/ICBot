@@ -54,6 +54,8 @@ def main(setting):
 
 
 if __name__ == '__main__':
+    if not os.path.isfile('settings.json'):
+        raise Exception('Settings are missing. Copy settings.default.json to settings.json and adjust.')
     with open('settings.json', 'r') as txt:
         builder = ""
         # Naively remove comments to avoid depending on other lib
