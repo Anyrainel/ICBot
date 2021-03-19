@@ -24,6 +24,8 @@ def do_trials(exp=10, gold=10, crystal=0):
     return
 
 def repeat_trial(times=10):
+    if times == 0:
+        return
     sleep(1)
     touch(Template(r"tpl1610617954337.png", record_pos=(0.374, 0.217), resolution=(2560, 1440)))
     sleep(1)

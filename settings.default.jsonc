@@ -11,15 +11,15 @@
     "CleanUpLogBeforeRun": false,
     // Actions ICBot will perform in order.
     "BotSequence": [
-        // {
-        //     // [Ares Battlefield] Bot tries to play matches repeatedly.
-        //     // CAUTION!: This bot is very dumb and has bugs, it randomly places units and uses leader skills.
-        //     "Action": "ares",
-        //     "Args": {
-        //         // Max number of matches to play. Default: 10
-        //         "times": 10
-        //     }
-        // },
+        {
+            // [Ares Battlefield] Bot tries to play matches repeatedly.
+            // CAUTION!: This bot is very dumb and has bugs, it randomly places units and uses leader skills.
+            "Action": "ares",
+            "Args": {
+                // Max number of matches to play. Currently only supports soul reaper. Default: 10
+                "times": 10
+            }
+        },
         {
             // [Dream Arena] Bot tries each arena opponents in order. If lost, retries until wins.
             "Action": "arena",
@@ -29,11 +29,20 @@
             }
         },
         {
+            // [Date] Bot tries date partners in order.
+            "Action": "date",
+            "Args": {
+                // Partners to date. Only following partners are supported. Default: []
+                // saya, nina, victoria, jasmine, polly, alice, yuffie, flora, fenebeth, ashwaya
+                "partners": []
+            }
+        },
+        {
             // [Dream Expedition] Bot tries currently available expedition stage repeatedly using auto.
             "Action": "expedition",
             "Args": {
-                // Max number of retries. Default: 100
-                "times": 100
+                // Max number of retries. Default: 10
+                "times": 10
             }
         },
         {
@@ -43,6 +52,17 @@
             "Args": {
                 // Times to purchase stamina. Default: 5
                 "times": 5
+            }
+        },
+        {
+            // [Exploration] Bot buys stamina using gems.
+            // CAUTION!: Rerunning bot will perform this again during the same day.
+            "Action": "exploration",
+            "Args": {
+                // Stage to farm. Only 2-4 is supported right now.
+                "stage": "2-4",
+                // Times to farm. Default: 1
+                "times": 1
             }
         },
         {
@@ -60,24 +80,13 @@
             }
         },
         {
-            // [Exploration] Bot buys stamina using gems.
-            // CAUTION!: Rerunning bot will perform this again during the same day.
-            "Action": "exploration",
-            "Args": {
-                // Stage to farm. Only 2-4 is supported right now.
-                "stage": "2-4",
-                // Times to farm. Default: 1
-                "times": 1
-            }
-        },
-        {
             // [Daily Quests] Bot collects all available rewards from daily quests.
             "Action": "quest",
             "Args": {}
         }
     ],
-    // Logging level in command line. Use WARNING or ERROR to reduce logs. Default: INFO
-    "LoggingLevel": "INFO",
+    // Logging level in command line for Airtest. Use WARNING or ERROR to reduce logs. Default: INFO
+    "AirtestLoggingLevel": "ERROR",
     // Not implemented features
     "StartLDPlayer": false,
     "StartIllusionConnectApp": false

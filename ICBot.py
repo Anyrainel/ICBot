@@ -4,43 +4,91 @@ import shutil
 import shlex
 import webbrowser
 import subprocess
+import logging
+import time
 from pathlib import Path
 from datetime import datetime
+
+
+logger = logging.getLogger('ICBot')
+
+def init_logger():
+    logger.setLevel(logging.INFO)
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(
+        fmt='[%(asctime)s][%(levelname)s]<%(name)s> %(message)s',
+        datefmt='%I:%M:%S'
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 
 def logtime():
     return datetime.now().strftime(r'%Y%m%d%H%M%S')
 
-
 def run(command, name):
-    print(">>> [%s]" % name, command)
-    ret = subprocess.call(shlex.split(command))
-    print(">>> [%s] finished with return code" % name, ret)
+    logger.info("Starting job [%s]" % name)
+    logger.debug("Command: %s" % command)
+    process = subprocess.Popen(
+        shlex.split(command), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    rc = process.poll()
+    output = process.stdout.readline().rstrip()
+    while rc is None or output:
+        if output and not output.startswith('[current_line]') and not '[DEBUG]' in output:
+            print(output)
+        rc = process.poll()
+        output = process.stdout.readline().rstrip()
+    logger.info("Finished job [%s] (%s)" % (name, rc))
 
 
-def main(setting):
+def get_settings():
+    if not os.path.isfile('settings.jsonc'):
+        logger.error(
+            'Settings are missing. Copy settings.default.jsonc to settings.jsonc and adjust.')
+        return None
+    logger.info("Loading settings.jsonc.")
+    with open('settings.jsonc', 'r') as txt:
+        builder = ""
+        # Naively remove comments to avoid depending on other lib
+        for linestr in txt.readlines():
+            line = linestr.strip()
+            if not line.startswith('//'):
+                builder += line
+        settings = json.loads(builder)
+    return settings
+
+def get_logdir(rootdir, settings):
+    reportdir = os.path.join(rootdir, settings['LogReportDirectory'])
+    logdir = os.path.join(reportdir, logtime())
+    if settings['CleanUpLogBeforeRun']:
+        shutil.rmtree(reportdir)
+    os.makedirs(logdir, exist_ok=True)
+    return logdir
+
+
+def main():
+    init_logger()
+    settings = get_settings()
+    if settings is None:
+        return
     rootdir = Path(__file__).parent.absolute()
     airtest = os.path.join(
-        setting['AirtestIDEDirectory'], 'AirtestIDE', 'AirtestIDE.exe')
-    device = setting['DeviceAdbUrl']
+        settings['AirtestIDEDirectory'], 'AirtestIDE', 'AirtestIDE.exe')
+    device = settings['DeviceAdbUrl']
     params = '&&'.join([
         'cap_method=JAVACAP',
         'ori_method=MINICAPORI',
         'touch_method=MINITOUCH',
     ])
-    logdir = os.path.join(rootdir, setting['LogReportDirectory'], logtime())
     main = os.path.join(rootdir, 'main.air')
-
-    if setting['CleanUpLogBeforeRun']:
-        shutil.rmtree(logdir)
-    os.makedirs(logdir, exist_ok=True)
+    logdir = get_logdir(rootdir, settings)
 
     run_command = '"%s" runner "%s" ' % (airtest, main)
     run_command += ' --device "%s?%s" ' % (device, params)
     run_command += ' --log "%s" ' % (logdir)
     run(run_command, 'Runner')
 
-    if setting['ShowLogReportAfterRun']:
+    if settings['ShowLogReportAfterRun']:
         loghtml = os.path.join(logdir, 'log.html')
         report_command = '"%s" reporter "%s" ' % (airtest, main)
         report_command += ' --log_root "%s" ' % logdir
@@ -49,19 +97,9 @@ def main(setting):
         if os.path.isfile(loghtml):
             webbrowser.open(loghtml, new=2)
         else:
-            print(">>> Cannot find log HTML, runner or reporter has errors.")
+            logger.warning("Cannot find log HTML, runner or reporter has errors.")
     return
 
 
 if __name__ == '__main__':
-    if not os.path.isfile('settings.jsonc'):
-        raise Exception('Settings are missing. Copy settings.default.jsonc to settings.jsonc and adjust.')
-    with open('settings.jsonc', 'r') as txt:
-        builder = ""
-        # Naively remove comments to avoid depending on other lib
-        for linestr in txt.readlines():
-            line = linestr.strip()
-            if not line.startswith('//'):
-                builder += line
-        setting = json.loads(builder)
-    main(setting)
+    main()

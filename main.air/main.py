@@ -15,24 +15,38 @@ ST.FIND_TIMEOUT = 5
 using("arena.air")
 using("ares.air")
 using("common.air")
+using("date.air")
 using("expedition.air")
 using("exploration.air")
 using("quest.air")
 using("stamina.air")
 using("trial.air")
 
-import arena, ares, common, expedition, exploration, quest, stamina, trial
+import arena, ares, common, date, expedition, exploration, quest, stamina, trial
+
+def init_logger(logger):
+    logger.setLevel(logging.INFO)
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(
+        fmt='[%(asctime)s][%(levelname)s]<%(name)s> %(message)s',
+        datefmt='%I:%M:%S'
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 def main():
     sequence, logger = init()
     for task in sequence:
         action = task['Action']
         args = task['Args']
-        logger.error(">>>> Starting Action %s <<<<", action)
+        logger.info("==== Starting Action [%s] ====", action)
+        logger.info("Args: %s" % args)
         if action == 'arena':
             arena.do_arena(**args)
         elif action == 'ares':
             ares.do_ares(**args)
+        elif action == 'date':
+            date.do_dates(**args)
         elif action == 'expedition':
             expedition.do_expedition(**args)
         elif action == 'exploration':
@@ -43,7 +57,7 @@ def main():
             stamina.buy_stamina(**args)
         elif action == 'trial':
             trial.do_trials(**args)
-        logger.error(">>>> Finished Action %s <<<<", action)
+        logger.info("==== Finished Action [%s] ====", action)
     return
 
 def init():
@@ -60,8 +74,10 @@ def init():
         "WARNING": logging.WARNING,
         "ERROR": logging.ERROR,
     }
-    logger = logging.getLogger("airtest")
-    logger.setLevel(levels[setting['LoggingLevel']])
+    airtestLogger = logging.getLogger("airtest")
+    airtestLogger.setLevel(levels[setting['AirtestLoggingLevel']])
+    logger = logging.getLogger('ICBot')
+    init_logger(logger)
     return setting['BotSequence'], logger
 
 

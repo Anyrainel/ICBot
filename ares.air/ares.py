@@ -8,10 +8,20 @@ from common import *
 
 
 def do_ares(times=10):
+    touch(Template(r"tpl1616170754909.png", record_pos=(0.275, -0.033), resolution=(2560, 1440)))
+    sleep(1)
+    battlefield = exists(Template(r"tpl1616170773856.png", record_pos=(0.283, -0.008), resolution=(2560, 1440)))
+    if not battlefield:
+        battlefield = p([0.848, 0.401])
+    touch(battlefield)
+    sleep(1)
     for i in range(times):
-        play_one_game()
+        play_one_match()
         if exists(Template(r"tpl1615914034297.png", threshold=0.9, record_pos=(0.316, 0.125), resolution=(2560, 1440))):
             break
+    for _ in range(2):
+        touch(Template(r"tpl1616170856599.png", record_pos=(0.461, -0.255), resolution=(2560, 1440)))
+        sleep(1)
     return
 
 
@@ -33,16 +43,18 @@ def play_one_match():
         return False
 
     for i in range(1000):
-        sleep(0.5)
+        # prefer middle skill
+        touch(p(skills[1]))
+        sleep(0.3)
         touch(p(choice(skills)))
-        sleep(0.5)
-        touch(p(choice(cards)))
-        sleep(0.5)
-        touch(p(choice(pos)))
-        sleep(0.5)
-        touch(p(choice(pos)))
-        if i % 10 == 0:
-            if exists(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440))):
+        if exists(Template(r"tpl1616171288027.png", record_pos=(0.285, 0.231), resolution=(2560, 1440))):
+            touch(p(choice(cards)))
+            sleep(0.5)
+            # prefer middle column
+            touch(p(choice(pos[3:5])))
+            sleep(0.3)
+            touch(p(choice(pos)))
+        elif i % 2 == 0 and exists(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440))):
                 break
     return True
 

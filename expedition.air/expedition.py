@@ -32,7 +32,7 @@ def repeat(times=100):
         p([0.283, 0.589]),
         p([0.096, 0.572]),
     ]
-    for i in range(times):
+    for _ in range(times):
         challenge = exists(Template(r"tpl1610008918490.png", record_pos=(-0.405, 0.018), resolution=(2560, 1440)))
         if challenge:
             touch(challenge)
@@ -47,8 +47,8 @@ def repeat(times=100):
             if manual:
                 touch(manual)
                 break
-        sleep(60)
-        for i in range(30):
+        sleep(30)
+        for i in range(60):
             victory = exists(Template(r"tpl1610009240936.png", record_pos=(0.165, -0.178), resolution=(2560, 1440)))
             if victory:
                 sleep(3)

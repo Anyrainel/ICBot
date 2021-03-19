@@ -12,4 +12,4 @@ TODO: add video link
 - Set up your Android emulator with IC app. (Default setting uses LDPlayer.)
 - Enable ADB Debug in emulator.
 - Copy `settings.default.jsonc` to `settings.jsonc` and edit.
-- Run `python ICBot.py` and enjoy!
+- Open IC then run `python ICBot.py` and enjoy!

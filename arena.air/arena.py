@@ -6,9 +6,12 @@ using("common.air")
 from common import *
 
 def do_arena(times=50):
+    if times == 0:
+        return
     touch(Template(r"arena.png", record_pos=(0.273, -0.034), resolution=(2560, 1440)))
-    sleep(3)
-    touch(Template(r"dream.png", record_pos=(-0.216, 0.003), resolution=(2560, 1440)))
+    sleep(1)
+    while not exists(Template(r"tpl1615997899077.png", record_pos=(-0.397, -0.255), resolution=(2560, 1440))):
+        touch(Template(r"dream.png", record_pos=(-0.216, 0.003), resolution=(2560, 1440)))
     sleep(1)
     fight(times)
     sleep(1)
@@ -31,11 +34,11 @@ def fight(times=50):
     while record < times:
         record += 1
         touch(p([0.509, 0.708])) # get through Congrats screen
-        sleep(2)
+        sleep(1)
         # find opponent
         while current < 10:
             touch(opponents[current])
-            sleep(1)
+            sleep(0.5)
             fast = exists(Template(r"fast_challenge.png", record_pos=(0.181, 0.156), resolution=(2560, 1440)))
             if fast:
                 touch(fast)

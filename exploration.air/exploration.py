@@ -38,6 +38,12 @@ def farm_stage(stage):
         sleep(2)
         touch(Template(r"tpl1610016421424.png", record_pos=(0.389, 0.069), resolution=(2560, 1440)))
         sleep(3)
+    
+    if exists(Template(r"tpl1610017457434.png", record_pos=(-0.112, -0.148), resolution=(2560, 1440))): # no stamina
+        touch(Template(r"tpl1610546178455.png", record_pos=(0.459, -0.254), resolution=(2560, 1440)))
+        touch(Template(r"tpl1610546178455.png", record_pos=(0.459, -0.254), resolution=(2560, 1440)))
+        sleep(1)
+        return
     try:
         touch(Template(r"tpl1610016448754.png", record_pos=(0.42, 0.226), resolution=(2560, 1440)))
     except: # no attempts left
