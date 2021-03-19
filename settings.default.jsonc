@@ -11,81 +11,81 @@
     "CleanUpLogBeforeRun": false,
     // Actions ICBot will perform in order.
     "BotSequence": [
-        {
-            // [Ares Battlefield] Bot tries to play matches repeatedly.
-            // CAUTION!: This bot is very dumb and has bugs, it randomly places units and uses leader skills.
-            "Action": "ares",
-            "Args": {
-                // Max number of matches to play. Currently only supports soul reaper. Default: 10
-                "times": 10
-            }
-        },
-        {
-            // [Dream Arena] Bot tries each arena opponents in order. If lost, retries until wins.
-            "Action": "arena",
-            "Args": {
-                // Max number of tickets to consume. Default: 50
-                "times": 50
-            }
-        },
-        {
-            // [Date] Bot tries date partners in order.
-            "Action": "date",
-            "Args": {
-                // Partners to date. Only following partners are supported. Default: []
-                // saya, nina, victoria, jasmine, polly, alice, yuffie, flora, fenebeth, ashwaya
-                "partners": []
-            }
-        },
-        {
-            // [Dream Expedition] Bot tries currently available expedition stage repeatedly using auto.
-            "Action": "expedition",
-            "Args": {
-                // Max number of retries. Default: 10
-                "times": 10
-            }
-        },
-        {
-            // [Stamina Redemption] Bot buys stamina using gems.
-            // CAUTION!: Rerunning bot will perform this again during the same day.
-            "Action": "stamina",
-            "Args": {
-                // Times to purchase stamina. Default: 5
-                "times": 5
-            }
-        },
-        {
-            // [Exploration] Bot buys stamina using gems.
-            // CAUTION!: Rerunning bot will perform this again during the same day.
-            "Action": "exploration",
-            "Args": {
-                // Stage to farm. Only 2-4 is supported right now.
-                "stage": "2-4",
-                // Times to farm. Default: 1
-                "times": 1
-            }
-        },
-        {
-            // [Daily Trials] Bot tries to raid trials.
-            // CAUTION!: Rerunning bot will perform this again during the same day.
-            // CAUTION!: This does not handle Cooperative Engagement.
-            "Action": "trial",
-            "Args": {
-                // Number of raids in Roof Training. Default: 10
-                "exp": 10,
-                // Number of raids in Bounty Mission. Default: 10
-                "gold": 10,
-                // Number of raids in Witch Operation. Default: 0
-                "crystal": 0
-            }
-        },
-        {
-            // [Daily Quests] Bot collects all available rewards from daily quests.
-            "Action": "quest",
-            "Args": {}
-        }
+        // {
+        //     // [Ares Battlefield] Bot tries to play matches repeatedly.
+        //     // CAUTION!: This bot is very dumb and has bugs, it randomly places units and uses leader skills.
+        //     "Action": "ares",
+        //     "Args": {
+        //         // Max number of matches to play. Currently only supports soul reaper. Default: 10
+        //         "times": 10
+        //     }
+        // },
+        // {
+        //     // [Dream Arena] Bot tries each arena opponents in order. If lost, retries until wins.
+        //     "Action": "arena",
+        //     "Args": {
+        //         // Max number of tickets to consume. Default: 50
+        //         "times": 50
+        //     }
+        // },
+        // {
+        //     // [Date] Bot tries date partners in order.
+        //     "Action": "date",
+        //     "Args": {
+        //         // Partners to date. Only following partners are supported. Default: []
+        //         // saya, nina, victoria, jasmine, polly, alice, yuffie, flora, fenebeth, ashwaya
+        //         "partners": []
+        //     }
+        // },
+        // {
+        //     // [Dream Expedition] Bot tries currently available expedition stage repeatedly using auto.
+        //     "Action": "expedition",
+        //     "Args": {
+        //         // Max number of retries. Default: 50
+        //         "times": 50
+        //     }
+        // },
+        // {
+        //     // [Stamina Redemption] Bot buys stamina using gems.
+        //     // CAUTION!: Rerunning bot will perform this again during the same day.
+        //     "Action": "stamina",
+        //     "Args": {
+        //         // Times to purchase stamina. Default: 5
+        //         "times": 5
+        //     }
+        // },
+        // {
+        //     // [Exploration] Bot buys stamina using gems.
+        //     // CAUTION!: Rerunning bot will perform this again during the same day.
+        //     "Action": "exploration",
+        //     "Args": {
+        //         // Stage to farm. Only 2-4 is supported right now.
+        //         "stage": "2-4",
+        //         // Times to farm. Default: 1
+        //         "times": 1
+        //     }
+        // },
+        // {
+        //     // [Daily Trials] Bot tries to raid trials.
+        //     // CAUTION!: Rerunning bot will perform this again during the same day.
+        //     // CAUTION!: This does not handle Cooperative Engagement.
+        //     "Action": "trial",
+        //     "Args": {
+        //         // Number of raids in Roof Training. Default: 10
+        //         "exp": 10,
+        //         // Number of raids in Bounty Mission. Default: 10
+        //         "gold": 10,
+        //         // Number of raids in Witch Operation. Default: 0
+        //         "crystal": 0
+        //     }
+        // },
+        // {
+        //     // [Daily Quests] Bot collects all available rewards from daily quests.
+        //     "Action": "quest",
+        //     "Args": {}
+        // }
     ],
-    // Logging level in command line for Airtest. Use WARNING or ERROR to reduce logs. Default: INFO
+    // Logging level in command line for Airtest. Use INFO or WARNING for more details. Default: ERROR
     "AirtestLoggingLevel": "ERROR",
     // Not implemented features
     "StartLDPlayer": false,
