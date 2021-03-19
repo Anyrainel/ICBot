@@ -2,6 +2,16 @@
 
 Illusion Connect bot created using Airtest.
 
+It supports:
+- Arena
+- Ares Battlefield (naive)
+- Partner Date (partial)
+- Dream Expedition
+- Exploration (partial)
+- Daily Trial
+- Buy Stamina
+- Daily Quest
+
 ## How to use
 
 TODO: add video link
