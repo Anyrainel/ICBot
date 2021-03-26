@@ -18,11 +18,12 @@ using("common.air")
 using("date.air")
 using("expedition.air")
 using("exploration.air")
+using("guild.air")
 using("quest.air")
 using("stamina.air")
 using("trial.air")
 
-import arena, ares, common, date, expedition, exploration, quest, stamina, trial
+import arena, ares, common, date, expedition, exploration, guild, quest, stamina, trial
 
 def init_logger(logger):
     logger.setLevel(logging.INFO)
@@ -51,6 +52,8 @@ def main():
             expedition.do_expedition(**args)
         elif action == 'exploration':
             exploration.do_exploration(**args)
+        elif action == 'guild':
+            guild.do_guild(**args)
         elif action == 'quest':
             quest.do_quest(**args)
         elif action == 'stamina':
