@@ -60,7 +60,7 @@ def main():
             stamina.buy_stamina(**args)
         elif action == 'trial':
             trial.do_trials(**args)
-        logger.info("==== Finished Action [%s] ====", action)
+        logger.info("   = Finished Action [%s] =   ", action)
     return
 
 def init():

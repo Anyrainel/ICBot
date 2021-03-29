@@ -23,6 +23,10 @@ def do_arena(times=50):
 
 
 def fight(times=50):
+    # get through new season
+    touch(p([0.509, 0.708]))
+    sleep(0.5)
+    touch(p([0.509, 0.708]))
     if exists(Template(r"0_50.png", threshold=0.9, record_pos=(-0.36, 0.248), resolution=(2560, 1440))):
         return
     opponents = [

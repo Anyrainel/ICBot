@@ -1,7 +1,7 @@
 {
     // The installation folder of AirtestIDE. There should be a folder named "AirtestIDE/" under this path.
     "AirtestIDEDirectory": "F:\\Program Files\\AirtestIDE-win-1.2.8\\",
-    // Android emulator ADB url
+    // Android emulator ADB url. This default is for LDPlayer.
     "DeviceAdbUrl": "android://127.0.0.1:5037/emulator-5554",
     // Log directory that records each run. This may take up disk space over time. Default: "log". 
     "LogReportDirectory": "log",
@@ -9,7 +9,7 @@
     "ShowLogReportAfterRun": true,
     // Remove everything under "LogReportDirectory" before running bot.
     "CleanUpLogBeforeRun": false,
-    // Actions ICBot will perform in order.
+    // Actions ICBot will perform. Comment out actions to skip. Reorder them to change execution order.
     "BotSequence": [
         // {
         //     // [Ares Battlefield] Bot tries to play matches repeatedly.
@@ -20,70 +20,86 @@
         //         "times": 10
         //     }
         // },
-        // {
-        //     // [Dream Arena] Bot tries each arena opponents in order. If lost, retries until wins.
-        //     "Action": "arena",
-        //     "Args": {
-        //         // Max number of tickets to consume. Default: 50
-        //         "times": 50
-        //     }
-        // },
-        // {
-        //     // [Date] Bot tries date partners in order.
-        //     "Action": "date",
-        //     "Args": {
-        //         // Partners to date. Only following partners are supported. Default: []
-        //         // saya, nina, victoria, jasmine, polly, alice, yuffie, flora, fenebeth, ashwaya
-        //         "partners": []
-        //     }
-        // },
-        // {
-        //     // [Dream Expedition] Bot tries currently available expedition stage repeatedly using auto.
-        //     "Action": "expedition",
-        //     "Args": {
-        //         // Max number of retries. Default: 50
-        //         "times": 50
-        //     }
-        // },
-        // {
-        //     // [Stamina Redemption] Bot buys stamina using gems.
-        //     // CAUTION!: Rerunning bot will perform this again during the same day.
-        //     "Action": "stamina",
-        //     "Args": {
-        //         // Times to purchase stamina. Default: 5
-        //         "times": 5
-        //     }
-        // },
-        // {
-        //     // [Exploration] Bot buys stamina using gems.
-        //     // CAUTION!: Rerunning bot will perform this again during the same day.
-        //     "Action": "exploration",
-        //     "Args": {
-        //         // Stage to farm. Only 2-4 is supported right now.
-        //         "stage": "2-4",
-        //         // Times to farm. Default: 1
-        //         "times": 1
-        //     }
-        // },
-        // {
-        //     // [Daily Trials] Bot tries to raid trials.
-        //     // CAUTION!: Rerunning bot will perform this again during the same day.
-        //     // CAUTION!: This does not handle Cooperative Engagement.
-        //     "Action": "trial",
-        //     "Args": {
-        //         // Number of raids in Roof Training. Default: 10
-        //         "exp": 10,
-        //         // Number of raids in Bounty Mission. Default: 10
-        //         "gold": 10,
-        //         // Number of raids in Witch Operation. Default: 0
-        //         "crystal": 0
-        //     }
-        // },
-        // {
-        //     // [Daily Quests] Bot collects all available rewards from daily quests.
-        //     "Action": "quest",
-        //     "Args": {}
-        // }
+        {
+            // [Dream Arena] Bot tries each arena opponents in order. If lost, retries until wins.
+            "Action": "arena",
+            "Args": {
+                // Max number of tickets to consume. Default: 50
+                "times": 50
+            }
+        },
+        {
+            // [Date] Bot tries date partners in order.
+            "Action": "date",
+            "Args": {
+                // Partners to date. Only following partners are supported. Default: []
+                // Choose 3 from saya, nina, victoria, jasmine, polly, alice, kiraya, yuffie, flora, fenebeth, ashwaya
+                "partners": [],
+                // Add a few additional clicks at end of each dialogue section (between choices) to increase robustness. Default: 2
+                // If you find the bot stuck on some of your dates, increase this value.
+                "extra_click": 2
+            }
+        },
+        {
+            // [Dream Expedition] Bot tries currently available expedition stage repeatedly using auto.
+            "Action": "expedition",
+            "Args": {
+                // Max number of retries. Default: 50
+                "times": 50
+            }
+        },
+        {
+            // [Stamina Redemption] Bot buys stamina using gems.
+            // CAUTION!: Rerunning bot will perform this again during the same day.
+            "Action": "stamina",
+            "Args": {
+                // Times to purchase stamina. Default: 5
+                "times": 5
+            }
+        },
+        {
+            // [Exploration] Bot buys stamina using gems.
+            // CAUTION!: Rerunning bot will perform this again during the same day.
+            "Action": "exploration",
+            "Args": {
+                // Stage to farm. Only 2-1, 2-2, 2-3 and 2-4 are supported. Default: 2-4
+                // 2-4 gives all gear types, and is the only with a chance of getting SSR accessory. Highly recommended.
+                "stage": "2-4",
+                // Whether only farm when that stage is Rec. Default: true
+                "rec_only": true,
+                // Max times to farm. Bot will skip if the stage is not Rec. Default: 2
+                "times": 2
+            }
+        },
+        {
+            // [Daily Trials] Bot tries to raid trials.
+            // CAUTION!: Rerunning bot will perform this again during the same day.
+            // CAUTION!: This does not handle Cooperative Engagement.
+            "Action": "trial",
+            "Args": {
+                // Number of raids in Roof Training. Default: 10
+                "exp": 10,
+                // Number of raids in Bounty Mission. Default: 10
+                "gold": 10,
+                // Number of raids in Witch Operation. Default: 0
+                "crystal": 0
+            }
+        },
+        {
+            // [Guild Contribution] Bot contributes to guild research lab.
+            "Action": "guild",
+            "Args": {
+                // Times of contributing 30 gem. Default: 5
+                "gem": 5,
+                // Times of contributing 20k gold. Default: 0
+                "gold": 0
+            }
+        },
+        {
+            // [Daily Quests] Bot collects all available rewards from daily quests.
+            "Action": "quest",
+            "Args": {}
+        }
     ],
     // Logging level in command line for Airtest. Use INFO or WARNING for more details. Default: ERROR
     "AirtestLoggingLevel": "ERROR",
