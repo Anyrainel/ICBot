@@ -75,7 +75,7 @@ def polly():
         return False
     if not start_date(3):
         return True
-    if False: # (Pretend you didn't hear and walk away)
+    if exists(Template(r"tpl1617080456478.png", threshold=0.8, record_pos=(-0.004, -0.093), resolution=(2560, 1440))):
         converse(choices=[1,2,1,2,1],talks=[4,4,4,5,6])
     elif exists(Template(r"tpl1616166687036.png", threshold=0.8, record_pos=(-0.005, 0.004), resolution=(2560, 1440))):
         converse(choices=[2,2,2,1,1],talks=[4,3,7,5,6])
@@ -105,12 +105,9 @@ def kiraya():
         converse(choices=[1,1,1,1,2], talks=[5,3,5,7,8])
     elif exists(Template(r"tpl1616755064937.png", threshold=0.8, record_pos=(-0.002, -0.095), resolution=(1920, 1080))):
         converse(choices=[1,1,1,2,2], talks=[5,11,5,8,3])
-    elif False: # Hm? Not many people write letters nowadays. Why not just call me?
+    elif exists(Template(r"tpl1617080173533.png", threshold=0.8, record_pos=(-0.003, -0.093), resolution=(2560, 1440))):
         converse(choices=[1,1,1,1,1], talks=[2,8,4,7,5])
-        
-
-
-
+    return True
 
 def yuffie():
     if not touch_partner(4, [Template(r"tpl1616169629826.png", record_pos=(-0.109, -0.026), resolution=(2560, 1440)), Template(r"tpl1616169530971.png", record_pos=(-0.108, -0.03), resolution=(2560, 1440))]):
@@ -219,5 +216,3 @@ def back(times=2):
         touch(Template(r"tpl1610822189335.png", record_pos=(0.46, -0.254), resolution=(2560, 1440)))
         sleep(0.5)
     return
-
-

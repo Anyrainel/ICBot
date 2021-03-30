@@ -24,15 +24,16 @@ def do_exploration(stage="2-4", rec_only=True, times=2):
 def farm_stage(stage, rec_only):
     if rec_only:
         if stage == "2-4":
-            if not exists(Template(r"tpl1616870851897.png", threshold=0.9, record_pos=(0.332, -0.114), resolution=(1920, 1080))):
+            if not exists(Template(r"tpl1616870851897.png", threshold=0.95, record_pos=(0.332, -0.114), resolution=(1920, 1080))):
                 return False
         elif stage == "2-3":
             if not exists(Template(r"tpl1616870894675.png", threshold=0.9, record_pos=(0.151, 0.062), resolution=(1920, 1080))):
                 return False
         elif stage == "2-2":
-            pass
+            if not exists(Template(r"tpl1617080658124.png", threshold=0.95, record_pos=(0.1, -0.055), resolution=(2560, 1440))):
+                return False
         elif stage == "2-1":
-            if not exists(Template(r"tpl1616870945985.png", threshold=0.9, record_pos=(-0.093, 0.031), resolution=(1920, 1080))):
+            if not exists(Template(r"tpl1616870945985.png", threshold=0.95, record_pos=(-0.093, 0.031), resolution=(1920, 1080))):
                 return False
     if stage == "2-4":
         touch(Template(r"tpl1616871028978.png", record_pos=(0.346, -0.098), resolution=(1920, 1080)))

@@ -60,7 +60,7 @@ def get_settings():
 def get_logdir(rootdir, settings):
     reportdir = os.path.join(rootdir, settings['LogReportDirectory'])
     logdir = os.path.join(reportdir, logtime())
-    if settings['CleanUpLogBeforeRun']:
+    if settings['CleanUpLogBeforeRun'] and os.path.isdir(reportdir):
         shutil.rmtree(reportdir)
     os.makedirs(logdir, exist_ok=True)
     return logdir
