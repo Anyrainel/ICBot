@@ -16,8 +16,8 @@ def do_arena(times=50):
     fight(times)
     sleep(1)
     touch(Template(r"back1.png", record_pos=(0.461, -0.254), resolution=(2560, 1440)))
-    sleep(1)
-    touch(Template(r"back1.png", record_pos=(0.461, -0.254), resolution=(2560, 1440)))
+    while not exists(Template(r"arena.png", record_pos=(0.273, -0.034), resolution=(2560, 1440))):
+        touch(Template(r"back1.png", record_pos=(0.461, -0.254), resolution=(2560, 1440)))
     sleep(1)
     return
 
