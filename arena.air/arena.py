@@ -10,8 +10,11 @@ def do_arena(times=50):
         return
     touch(Template(r"arena.png", record_pos=(0.273, -0.034), resolution=(2560, 1440)))
     sleep(1)
-    while not exists(Template(r"tpl1615997899077.png", record_pos=(-0.397, -0.255), resolution=(2560, 1440))):
-        touch(Template(r"dream.png", record_pos=(-0.216, 0.003), resolution=(2560, 1440)))
+    while not exists(Template(r"tpl1617877854337.png", record_pos=(-0.396, -0.269), resolution=(2560, 1440))):
+        try:
+            touch(Template(r"dream.png", record_pos=(-0.216, 0.003), resolution=(2560, 1440)))
+        except:
+            continue
     sleep(1)
     fight(times)
     sleep(1)
@@ -60,7 +63,7 @@ def fight(times=50):
             elif exists(Template(r"victory.png", record_pos=(-0.001, -0.156), resolution=(2560, 1440))):
                 sleep(0.5)
                 touch(Template(r"confirm2.png", record_pos=(-0.0, 0.205), resolution=(2560, 1440)))
-                sleep(2)
+                sleep(1)
                 break
             else:
 #             elif exists(Template(r"failure.png", record_pos=(-0.006, -0.157), resolution=(2560, 1440))):

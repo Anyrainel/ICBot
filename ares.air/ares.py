@@ -41,6 +41,11 @@ def play_one_match():
         wait(Template(r"tpl1615912039486.png", record_pos=(-0.391, 0.179), resolution=(2560, 1440)), timeout=20)
     except:
         return False
+    confirm = exists(Template(r"tpl1617811438579.png", record_pos=(-0.002, 0.109), resolution=(2560, 1440)))
+    if confirm:
+        touch(confirm)
+        sleep(1)
+        return False
 
     for i in range(1000):
         # prefer middle skill
@@ -54,7 +59,9 @@ def play_one_match():
             touch(p(choice(pos[3:5])))
             sleep(0.3)
             touch(p(choice(pos)))
-        elif i % 2 == 0 and exists(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440))):
+        elif i % 2 == 0:
+            touch(p(0.5, 0.9))
+            if exists(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440))):
                 break
     return True
 

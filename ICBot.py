@@ -38,7 +38,6 @@ def run(command, name):
             print(output)
         rc = process.poll()
         output = process.stdout.readline().rstrip()
-    logger.info("Finished job [%s] (%s)" % (name, rc))
 
 
 def get_settings():
