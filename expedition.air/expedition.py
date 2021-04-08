@@ -54,7 +54,7 @@ def repeat(times=100):
                 sleep(3)
                 touch(victory)
                 break
-            failure = exists(Template(r"tpl1610009455255.png", record_pos=(0.219, -0.197), resolution=(2560, 1440)))
+            failure = exists(Template(r"tpl1617880444908.png", record_pos=(0.234, 0.084), resolution=(2560, 1440)))
             if failure:
                 sleep(3)
                 touch(failure)
