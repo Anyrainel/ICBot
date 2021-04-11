@@ -38,7 +38,7 @@ def play_one_match():
     try:
         touch(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440)))
         sleep(10)
-        wait(Template(r"tpl1615912039486.png", record_pos=(-0.391, 0.179), resolution=(2560, 1440)), timeout=20)
+        wait(Template(r"tpl1615912039486.png", record_pos=(-0.391, 0.179), resolution=(2560, 1440)), timeout=15)
     except:
         return False
     confirm = exists(Template(r"tpl1617811438579.png", record_pos=(-0.002, 0.109), resolution=(2560, 1440)))
@@ -60,7 +60,7 @@ def play_one_match():
             sleep(0.3)
             touch(p(choice(pos)))
         elif i % 2 == 0:
-            touch(p(0.5, 0.9))
+            touch(p([0.5, 0.9]))
             if exists(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440))):
                 break
     return True

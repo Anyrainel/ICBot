@@ -16,6 +16,7 @@ def do_dates(partners=[], extra_click=2):
         if eval(partner + '()'):
             back(2)
     back(1)
+    sleep(1)
     return
 
 def saya():
@@ -147,6 +148,19 @@ def fenebeth():
         converse(choices=[1,2,2,2,2],talks=[6,4,6,6,6])
     elif exists(Template(r"tpl1616316491036.png", record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,2,2,1,1],talks=[5,5,5,4,5])
+    return True
+
+def frantiva():
+    if not touch_partner(5, [Template(r"tpl1618100844295.png", record_pos=(0.022, 0.143), resolution=(2560, 1440)), Template(r"tpl1618101069392.png", record_pos=(0.022, 0.142), resolution=(2560, 1440))]):
+        return False
+    if not start_date(3):
+        return True
+    if False: # Does the sound of the horn mean anything?
+        converse(choices=[2,2,1,2,1],talks=[4,6,6,6,5])
+    elif exists(Template(r"tpl1618100960220.png", record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
+        converse(choices=[2,1,2,1,1],talks=[4,5,3,5,5])
+    elif False: # Why have you come here?
+        converse(choices=[2,1,2,1,2],talks=[4,4,4,4,4])
     return True
 
 def ashwaya():

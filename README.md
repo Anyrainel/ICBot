@@ -10,11 +10,13 @@ It supports:
 - Exploration (partial)
 - Daily Trial
 - Buy Stamina
+- Guild Contribution
 - Daily Quest
 
 ## How to use
 
-TODO: add video link
+![Demo](https://youtu.be/HWGXSp8aMB0)
+![Setup Guide](https://youtu.be/tU9veFLHgHo)
 
 ## Set up
 
