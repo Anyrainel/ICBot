@@ -155,11 +155,11 @@ def frantiva():
         return False
     if not start_date(3):
         return True
-    if False: # Does the sound of the horn mean anything?
+    if exists(Template(r"tpl1618392481281.png", threshold=0.8, record_pos=(-0.004, 0.006), resolution=(2560, 1440))):
         converse(choices=[2,2,1,2,1],talks=[4,6,6,6,5])
-    elif exists(Template(r"tpl1618100960220.png", record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
+    elif exists(Template(r"tpl1618100960220.png", threshold=0.8, record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,1,2,1,1],talks=[4,5,3,5,5])
-    elif False: # Why have you come here?
+    elif exists(Template(r"tpl1618389476982.png", threshold=0.8, record_pos=(-0.004, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,1,2,1,2],talks=[4,4,4,4,4])
     return True
 

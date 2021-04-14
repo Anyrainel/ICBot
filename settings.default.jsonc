@@ -33,7 +33,7 @@
             "Action": "date",
             "Args": {
                 // Partners to date. Only following partners are supported. Default: []
-                // Choose 3 from saya, nina, victoria, jasmine, polly, alice, kiraya, yuffie, flora, fenebeth, ashwaya
+                // Choose 3 from saya, nina, victoria, jasmine, polly, alice, kiraya, yuffie, flora, fenebeth, frantiva, ashwaya
                 "partners": [],
                 // Add a few additional clicks at end of each dialogue section (between choices) to increase robustness. Default: 2
                 // If you find the bot stuck on some of your dates, increase this value.
