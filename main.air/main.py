@@ -9,7 +9,7 @@ auto_setup(__file__)
 
 ST.PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 ST.OPDELAY = 0.2
-ST.FIND_TIMEOUT_TMP = 2
+ST.FIND_TIMEOUT_TMP = 1.5
 ST.FIND_TIMEOUT = 5
 
 using("arena.air")

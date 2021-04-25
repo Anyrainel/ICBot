@@ -193,7 +193,7 @@ def converse(choices=[], talks=[]):
 def talk(times):
     for _ in range(times * 2 + extra):
         touch(p([0.53, 0.84]))
-        sleep(0.3)
+        sleep(0.2)
     return
 
 def touch_partner(fid, tpls):

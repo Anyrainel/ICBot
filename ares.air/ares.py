@@ -16,9 +16,9 @@ def do_ares(times=10):
     touch(battlefield)
     sleep(1)
     for i in range(times):
-        play_one_match()
         if exists(Template(r"tpl1615914034297.png", threshold=0.9, record_pos=(0.316, 0.125), resolution=(2560, 1440))):
             break
+        play_one_match()
     for _ in range(2):
         touch(Template(r"tpl1616170856599.png", record_pos=(0.461, -0.255), resolution=(2560, 1440)))
         sleep(1)
@@ -36,9 +36,9 @@ pos = [[0.198, 0.34], [0.301, 0.349], [0.4, 0.353],
 def play_one_match():
     touch(p([0.287, 0.626]))
     try:
-        touch(Template(r"tpl1615912009557.png", record_pos=(0.317, 0.125), resolution=(2560, 1440)))
+        touch(Template(r"tpl1615912009557.png", threshold=0.9, record_pos=(0.317, 0.125), resolution=(2560, 1440)))
         sleep(10)
-        wait(Template(r"tpl1615912039486.png", record_pos=(-0.391, 0.179), resolution=(2560, 1440)), timeout=15)
+        wait(Template(r"tpl1615912039486.png", threshold=0.9, record_pos=(-0.391, 0.179), resolution=(2560, 1440)), timeout=15)
     except:
         return False
     confirm = exists(Template(r"tpl1617811438579.png", record_pos=(-0.002, 0.109), resolution=(2560, 1440)))
