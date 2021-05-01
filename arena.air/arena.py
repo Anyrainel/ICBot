@@ -19,7 +19,7 @@ def do_arena(times=50):
     fight(times)
     sleep(1)
     touch(Template(r"back1.png", record_pos=(0.461, -0.254), resolution=(2560, 1440)))
-    while not exists(Template(r"arena.png", record_pos=(0.273, -0.034), resolution=(2560, 1440))):
+    while not exists(Template(r"arena.png", threshold=0.8, record_pos=(0.273, -0.034), resolution=(2560, 1440))):
         touch(Template(r"back1.png", record_pos=(0.461, -0.254), resolution=(2560, 1440)))
     sleep(1)
     return
@@ -41,7 +41,7 @@ def fight(times=50):
     while record < times:
         record += 1
         touch(p([0.509, 0.708])) # get through Congrats screen
-        sleep(1)
+        sleep(0.7)
         # find opponent
         while current < 10:
             touch(opponents[current])

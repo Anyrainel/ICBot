@@ -33,7 +33,7 @@ def repeat_trial(times=10):
         try:
             touch(Template(r"tpl1610617997663.png", record_pos=(0.093, 0.23), resolution=(2560, 1440)))
             # TODO: handle no stamina
-            sleep(1)
+            sleep(1.2)
             touch(Template(r"tpl1610618017106.png", record_pos=(0.004, -0.117), resolution=(2560, 1440)))
             sleep(0.5)
         except:

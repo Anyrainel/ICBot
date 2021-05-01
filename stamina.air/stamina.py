@@ -9,6 +9,7 @@ def buy_stamina(times=5):
     touch(Template(r"tpl1610618401547.png", record_pos=(0.238, -0.246), resolution=(2560, 1440)))
     sleep(1)
     if exists(Template(r"tpl1610618896822.png", threshold=0.95, record_pos=(0.266, 0.129), resolution=(2560, 1440))):
+        sleep(1)
         touch(p([0.945, 0.061]))
         sleep(1)
         return

@@ -26,9 +26,9 @@ def saya():
         return True
     if exists(Template(r"tpl1616165561978.png", threshold=0.8, record_pos=(-0.007, 0.007), resolution=(2560, 1440))):
         converse(choices=[2,1,2,2,1],talks=[7,8,7,7,11])
-    elif exists(Template(r"tpl1616325846715.png", record_pos=(-0.004, 0.005), resolution=(2560, 1440))):
+    elif exists(Template(r"tpl1616325846715.png", threshold=0.8, record_pos=(-0.004, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,1,1,1,1],talks=[5,6,6,4,6])
-    elif exists(Template(r"tpl1616325763192.png", record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
+    elif exists(Template(r"tpl1616325763192.png", threshold=0.8, record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,2,1,1,1],talks=[7,6,6,9,8])
     return True
     
@@ -71,6 +71,19 @@ def jasmine():
         converse(choices=[1,2,1,1,1], talks=[4,3,6,4,6])
     return True
 
+def ann():
+    if not touch_partner(0, [Template(r"tpl1619663280983.png", record_pos=(0.286, 0.051), resolution=(1920, 1080))]):
+        return False
+    if not start_date(5):
+        return True
+    if exists(Template(r"tpl1619688288747.png", threshold=0.8, record_pos=(-0.005, -0.094), resolution=(1920, 1080))):
+        converse(choices=[1,2,1,2,1], talks=[4,8,11,4,5])
+    elif exists(Template(r"tpl1619796741895.png", threshold=0.8, record_pos=(-0.005, 0.005), resolution=(1920, 1080))):
+        converse(choices=[2,2,2,1,1], talks=[7,9,3,6,4])
+    elif exists(Template(r"tpl1619903494022.png", threshold=0.8, record_pos=(-0.004, -0.095), resolution=(1920, 1080))):
+        converse(choices=[1,1,1,2,2], talks=[4,5,5,4,15])
+    return True
+
 def polly():
     if not touch_partner(0, [Template(r"tpl1616169701430.png", record_pos=(0.153, 0.194), resolution=(2560, 1440)), Template(r"tpl1616169460778.png", record_pos=(0.155, 0.193), resolution=(2560, 1440))]):
         return False
@@ -110,6 +123,19 @@ def kiraya():
         converse(choices=[1,1,1,1,1], talks=[2,8,4,7,5])
     return True
 
+def sakai():
+    if not touch_partner(3, [Template(r"tpl1619663020690.png", record_pos=(0.022, -0.022), resolution=(1920, 1080))]):
+        return False
+    if not start_date(3):
+        return True
+    if exists(Template(r"tpl1619688122834.png", threshold=0.8, record_pos=(-0.006, -0.094), resolution=(1920, 1080))):
+        converse(choices=[1,1,2,2,1], talks=[5,5,6,14,4])
+    elif exists(Template(r"tpl1619796795593.png", threshold=0.8, record_pos=(-0.005, -0.095), resolution=(1920, 1080))):
+        converse(choices=[1,1,1,2,2], talks=[6,6,14,14,4])
+    elif exists(Template(r"tpl1619903569838.png", threshold=0.8, record_pos=(-0.005, -0.094), resolution=(1920, 1080))):
+        converse(choices=[1,2,1,2,2], talks=[4,12,5,11,1])
+    return True
+
 def yuffie():
     if not touch_partner(4, [Template(r"tpl1616169629826.png", record_pos=(-0.109, -0.026), resolution=(2560, 1440)), Template(r"tpl1616169530971.png", record_pos=(-0.108, -0.03), resolution=(2560, 1440))]):
         return False
@@ -121,6 +147,19 @@ def yuffie():
         converse(choices=[2,1,1,1,1],talks=[4,6,5,5,5])
     elif exists(Template(r"tpl1616326076878.png", record_pos=(-0.004, -0.093), resolution=(2560, 1440))):
         converse(choices=[1,1,1,1,2],talks=[5,5,4,4,5])
+    return True
+
+def beatrice():
+    if not touch_partner(4, [Template(r"tpl1619663466322.png", record_pos=(0.154, 0.149), resolution=(1920, 1080))]):
+        return False
+    if not start_date(3):
+        return True
+    if exists(Template(r"tpl1619688209377.png", threshold=0.8, record_pos=(-0.009, 0.006), resolution=(1920, 1080))):
+        converse(choices=[2,2,1,1,2],talks=[7,5,5,7,4])
+    elif exists(Template(r"tpl1619796853063.png", threshold=0.8, record_pos=(-0.007, 0.005), resolution=(1920, 1080))):
+        converse(choices=[2,2,2,1,2],talks=[6,5,11,6,10])
+    elif exists(Template(r"tpl1619903627365.png", threshold=0.8, record_pos=(-0.007, -0.094), resolution=(1920, 1080))):
+        converse(choices=[1,1,2,1,1],talks=[7,7,6,6,6])
     return True
 
 def flora():
@@ -146,7 +185,7 @@ def fenebeth():
         converse(choices=[2,2,2,2,1],talks=[4,5,4,4,5])
     elif exists(Template(r"tpl1616167597702.png", threshold=0.8, record_pos=(-0.006, -0.094), resolution=(2560, 1440))):
         converse(choices=[1,2,2,2,2],talks=[6,4,6,6,6])
-    elif exists(Template(r"tpl1616316491036.png", record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
+    elif exists(Template(r"tpl1616316491036.png", threshold=0.8, record_pos=(-0.005, 0.005), resolution=(2560, 1440))):
         converse(choices=[2,2,2,1,1],talks=[5,5,5,4,5])
     return True
 
